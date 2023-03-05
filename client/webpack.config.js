@@ -34,14 +34,16 @@ module.exports = () => {
         theme_color: '#7eb4e2',
         start_url: './',
         publicPath: './',
+        fingerprints: false,
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
+            fingerprints: false,
           },
         ],
-      }),
+      })
     ],
 
     module: {
