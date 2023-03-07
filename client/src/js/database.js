@@ -26,14 +26,17 @@ export const putDb = async (content) => {
 // Add logic for a method that gets all the content from the database
 export const getDb = async () => {
   //console.error('getDb not implemented');
-  // TODO - Get header to load on first visit when user would have no data
   const jateDb = await openDB('jate', 1);
   const text = jateDb.transaction('jate', 'readonly');
   const store = text.objectStore('jate');
   const request = store.getAll();
   const result = await request;
   console.log('result.value', result);
-  return result;
+  if (result.length >= 1) {
+    return result;
+  } else {
+    return;
+  }
 };
 
 initdb();
