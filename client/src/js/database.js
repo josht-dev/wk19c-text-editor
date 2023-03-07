@@ -12,14 +12,28 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
+// Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
-  console.error('putDb not implemented');
+  //console.error('putDb not implemented');
+  const jateDb = await openDB('jate', 1);
+  const text = jateDb.transaction('jate', 'readwrite');
+  const store = text.objectStore('jate');
+  const request = store.put({ jate: content });
+  const result = await request;
+  console.log('DATA SAVED TO THE DATABASE!', result);
 };
 
-// TODO: Add logic for a method that gets all the content from the database
+// Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  console.error('getDb not implemented');
+  //console.error('getDb not implemented');
+  // TODO - Get header to load on first visit when user would have no data
+  const jateDb = await openDB('jate', 1);
+  const text = jateDb.transaction('jate', 'readonly');
+  const store = text.objectStore('jate');
+  const request = store.getAll();
+  const result = await request;
+  console.log('result.value', result);
+  return result;
 };
 
 initdb();
