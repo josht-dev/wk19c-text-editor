@@ -32,10 +32,10 @@ module.exports = () => {
       }),
       new WebpackPwaManifest({
         name: 'wk19c PWA Text Editor',
-        short_name: 'TextEditorPWA',
+        short_name: 'J.A.T.E',
         description: 'A browser based text editor that can be used!',
-        background_color: '#7eb4e2',
-        theme_color: '#7eb4e2',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
         start_url: './',
         publicPath: './',
         fingerprints: false,
